@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penta — AI agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail" id="rail">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <path
+                d="M24 4 44 19.5 36.3 44H11.7L4 19.5 24 4Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              />
+              <path d="M24 14 34 22l-4 12h-12l-4-12 10-8Z" fill="currentColor" />
+            </svg>
+          </div>
+          <div>
+            <p class="brand-name">Penta</p>
+            <p class="brand-sub">Original AI agent</p>
+          </div>
+        </div>
+
+        <button class="new-chat" id="new-chat" type="button">
+          <span>+</span> New thread
+        </button>
+
+        <div class="thread-label">Threads</div>
+        <div class="threads" id="threads"></div>
+
+        <div class="rail-foot">
+          <div class="status">
+            <span class="pulse"></span>
+            Live · Groq oss-120b
+          </div>
+        </div>
+      </aside>
+
+      <main class="stage">
+        <header class="topbar">
+          <button class="ghost" id="menu-toggle" type="button" aria-label="Open threads">☰</button>
+          <div>
+            <h1 id="thread-title">New thread</h1>
+            <p class="meta">Thinks in five lines. Answers in full.</p>
+          </div>
+          <div class="agent-chip">
+            <span class="dot"></span>
+            Penta online
+          </div>
+        </header>
+
+        <section class="transcript" id="transcript"></section>
+
+        <footer class="composer-wrap">
+          <form class="composer" id="composer">
+            <textarea
+              id="input"
+              rows="1"
+              placeholder="Ask Penta anything…"
+              autocomplete="off"
+            ></textarea>
+            <div class="composer-actions">
+              <p class="hint">Enter to send · Shift+Enter for a new line</p>
+              <button type="button" class="stop" id="stop" hidden>Stop</button>
+              <button type="submit" class="send" id="send">Send</button>
+            </div>
+          </form>
+        </footer>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
