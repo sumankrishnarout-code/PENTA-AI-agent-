@@ -9,6 +9,15 @@ from langchain_groq import ChatGroq
 
 ROOT = Path(__file__).resolve().parent
 
+# Load environment variables from .env if present
+env_path = ROOT / ".env"
+if env_path.exists():
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, val = line.split("=", 1)
+            os.environ.setdefault(key.strip(), val.strip().strip("'\""))
+
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "YOUR_GROQ_API_KEY")
 
 llm = ChatGroq(
